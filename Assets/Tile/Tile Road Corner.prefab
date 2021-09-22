@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3583776089439278930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1631290303897318051, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 626410dc07212d749823da2540a223bb, type: 3}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801852, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801853, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_Name
+      value: Tile Road Corner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
