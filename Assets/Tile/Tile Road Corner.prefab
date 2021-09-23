@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Road Corner
       objectReference: {fileID: 0}
+    - target: {fileID: 3437581345563801853, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}

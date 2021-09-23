@@ -25,7 +25,6 @@ public class EnemyMover : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-
         foreach (Waypoint waypoint in path)
         {
             startPosition = transform.position;
