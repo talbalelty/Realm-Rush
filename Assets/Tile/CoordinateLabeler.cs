@@ -1,24 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
+    [SerializeField] Color defaultColor = Color.black;
+    [SerializeField] Color blockedColor = Color.red;
+
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
+    Waypoint waypoint;
+    bool toggleLabels = false;
 
     private void Awake()
     {
         label = GetComponent<TextMeshPro>();
+        label.color = defaultColor;
+        label.enabled = false;
+        waypoint = GetComponentInParent<Waypoint>();
         DisplayCoordinates();
     }
+
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    void OnToggleTileLabels(InputValue value)
+    {
+        toggleLabels = value.isPressed;
     }
 
     // Update is called once per frame
@@ -29,16 +41,40 @@ public class CoordinateLabeler : MonoBehaviour
             DisplayCoordinates();
             UpdateObjectName();
         }
+
+        ToggleLabels();
+        ColorCoordinates();
     }
 
-    private void DisplayCoordinates()
+     void ToggleLabels()
+    {
+        if (toggleLabels)
+        {
+            label.enabled = !label.IsActive();
+            toggleLabels = false;
+        }
+    }
+
+    void ColorCoordinates()
+    {
+        if (waypoint.IsPlaceable)
+        {
+            label.color = defaultColor;
+        }
+        else
+        {
+            label.color = blockedColor;
+        }
+    }
+
+    void DisplayCoordinates()
     {
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
         label.text = $"({coordinates.x},{coordinates.y})";
     }
 
-    private void UpdateObjectName()
+    void UpdateObjectName()
     {
         transform.parent.name = coordinates.ToString();
     }

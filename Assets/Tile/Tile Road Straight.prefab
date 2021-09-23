@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 637033301366786691, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637033301366786691, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190335
+      objectReference: {fileID: 0}
+    - target: {fileID: 993496654154047704, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1631290303897318051, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -61,7 +73,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437581345563801853, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
       propertyPath: m_TagString
-      value: Road
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548560058595871840, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: blockedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548560058595871840, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: blockedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548560058595871840, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}
+      propertyPath: blockedColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b02243192f7794ba5db46b7ecce572, type: 3}

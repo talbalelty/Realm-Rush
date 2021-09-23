@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1052841003588253311}
   - component: {fileID: 637033301366786691}
   - component: {fileID: 8548560058595871840}
+  - component: {fileID: 1465586514422849497}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589926744843584696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -183,6 +184,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591f3424939459349a70c553c7d7013a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
+  blockedColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1465586514422849497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589926744843584696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 956f5c8fd870caa4f9f1b4bfee2e88b9, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: cc8b8cd4-9fec-4f42-9ca2-37822e0040d1
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &3437581345563801853
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd78654e34a9bb49a51daa3db3d986d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlaceable: 1
   tower: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
 --- !u!1 &4666434831174506706
 GameObject:

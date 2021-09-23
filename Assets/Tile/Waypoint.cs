@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Waypoint : MonoBehaviour
 {
+    [SerializeField] bool isPlaceable = true;
     [SerializeField] GameObject tower;
 
     Vector2 pointerPosition;
@@ -19,7 +17,7 @@ public class Waypoint : MonoBehaviour
     }
 
     void OnClick(InputValue value)
-    { 
+    {
         isClicked = value.isPressed;
     }
 
@@ -32,7 +30,7 @@ public class Waypoint : MonoBehaviour
     {
         if (isClicked)
         {
-            if (CompareTag("Untagged"))
+            if (isPlaceable)
             {
                 ProcessPointing();
             }
@@ -50,8 +48,16 @@ public class Waypoint : MonoBehaviour
             if (gameObject.Equals(hit.transform.gameObject))
             {
                 Instantiate(tower, transform.position, Quaternion.identity);
-                tag = "Occupied";
+                isPlaceable = false;
             }
+        }
+    }
+
+    public bool IsPlaceable
+    {
+        get
+        {
+            return isPlaceable;
         }
     }
 }
