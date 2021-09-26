@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaceable: 1
-  tower: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  tower: {fileID: 526001146125017485, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
 --- !u!1 &4666434831174506706
 GameObject:
   m_ObjectHideFlags: 0

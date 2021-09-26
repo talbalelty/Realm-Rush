@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] bool isPlaceable = true;
-    [SerializeField] GameObject tower;
+    [SerializeField] Tower tower;
 
     Vector2 pointerPosition;
     Ray ray;
@@ -47,8 +47,7 @@ public class Waypoint : MonoBehaviour
             // if is true when the hit GameObject equals this script's GameObject (the Tile)
             if (gameObject.Equals(hit.transform.gameObject))
             {
-                Instantiate(tower, transform.position, Quaternion.identity);
-                isPlaceable = false;
+                isPlaceable = !tower.CreateTower(tower, transform.position);
             }
         }
     }
