@@ -6,12 +6,28 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] int cost = 75;
+    [SerializeField] [Range(0f, 10f)] float buildDelay = 3f;
+
     Bank bank;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Build());
+    }
+
+    IEnumerator Build()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        float partDelay = buildDelay / transform.childCount;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+            yield return new WaitForSeconds(partDelay);
+        }
     }
 
     // Update is called once per frame
