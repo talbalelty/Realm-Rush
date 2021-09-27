@@ -184,8 +184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591f3424939459349a70c553c7d7013a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0, g: 0, b: 0, a: 1}
   blockedColor: {r: 1, g: 0, b: 0, a: 1}
+  pathColor: {r: 0, g: 0, b: 1, a: 1}
+  exploredColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1465586514422849497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: cc8b8cd4-9fec-4f42-9ca2-37822e0040d1
+  m_DefaultActionMap: Debug Action Map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &3437581345563801853
