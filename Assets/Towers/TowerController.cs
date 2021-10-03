@@ -1,16 +1,20 @@
 using UnityEngine;
 
-//In order for this script to work correctly, it needs to be first in the game object
+// This script is used to control the Tower behaviour.
+// In order for this script to work correctly, it needs to be first in the game object
+
 public class TowerController : MonoBehaviour
 {
+    [Tooltip("The part of the model that rotates towards the enemy")]
     [SerializeField] Transform weapon;
+    [Tooltip("Maximum attack range of the Tower")]
     [SerializeField] float range = 15;
 
+    float maxDistance = Mathf.Infinity;
+    float targetDistance;
     ParticleSystem projectileParticles;
     Transform target;
     Transform closestTarget;
-    float maxDistance = Mathf.Infinity;
-    float targetDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class TowerController : MonoBehaviour
             if (targetDistance < maxDistance)
             {
                 closestTarget = enemy.transform;
+                // In the end maxDistance will holds the distance to closest target
                 maxDistance = targetDistance;
             }
         }
@@ -46,6 +51,7 @@ public class TowerController : MonoBehaviour
 
     void AimWeapon()
     {
+        // Keep looking at enemy even if out of range
         weapon.LookAt(target);
         if (maxDistance <= range)
         {

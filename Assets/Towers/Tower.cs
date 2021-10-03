@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+// This script handles the Tower's initial spawn
 
 public class Tower : MonoBehaviour
 {
+    [Header("Tower Configuration")]
     [SerializeField] int cost = 75;
     [SerializeField] [Range(0f, 10f)] float buildDelay = 3f;
 
     Bank bank;
-    Tile tile;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour
         StartCoroutine(Build());
     }
 
+    // Used as a visual representation of building the tower
     IEnumerator Build()
     {
         foreach (Transform child in transform)
@@ -29,12 +30,6 @@ public class Tower : MonoBehaviour
             child.gameObject.SetActive(true);
             yield return new WaitForSeconds(partDelay);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public bool CreateTower(Tower tower, Vector3 position)

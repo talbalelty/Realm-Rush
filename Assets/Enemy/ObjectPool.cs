@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+// This script creates a pool of enemies to be spawned together
+
 public class ObjectPool : MonoBehaviour
 {
+    [Tooltip("The enemy that will be in the pool")]
     [SerializeField] GameObject enemy;
+    [Header("Spawn Configuration")]
     [SerializeField] [Range(0, 50)] int poolSize = 5;
     [SerializeField] [Range(0.1f, 30f)] float spawnDelay = 1f;
 
@@ -14,6 +18,7 @@ public class ObjectPool : MonoBehaviour
         PopulatePool();
     }
 
+    // Creates the pool's objects without activating them
     void PopulatePool()
     {
         pool = new GameObject[poolSize];
@@ -31,12 +36,6 @@ public class ObjectPool : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     IEnumerator SpawnEnemies()
     {
         while (true)
@@ -46,6 +45,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    // If enemy was kill or reached it's final destination respawn them
     void EnableObjectsInPool()
     {
         foreach (GameObject enemy in pool)

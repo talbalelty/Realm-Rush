@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this script handles enemy movement on the calculated path from Pathfinder script
+
 [RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] [Range(0f, 5f)] float stepSpeed = 1f;
+    [SerializeField] [Range(0f, 10f)] float stepSpeed = 1f;
     
-    List<Node> path = new List<Node>();
-    Enemy enemy;
+    float travelPercent;
     Vector2Int coordinates;
     Vector3 startPosition;
     Vector3 endPosition;
-    float travelPercent;
-
+    List<Node> path = new List<Node>();
+    Enemy enemy;
     GridManager gridManager;
     Pathfinder pathfinder;
 
@@ -29,17 +30,6 @@ public class EnemyMover : MonoBehaviour
     {
         ReturnToStart();
         RecalculatePath(true);
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void RecalculatePath(bool resetPath)
@@ -68,6 +58,7 @@ public class EnemyMover : MonoBehaviour
     {
         for (int i = 1; i < path.Count; i++)
         {
+            // Prepare enemy positions and rotation
             startPosition = transform.position;
             endPosition = gridManager.GetPositionFromCoordinates(path[i].coordinates);
             travelPercent = 0f;
@@ -75,6 +66,7 @@ public class EnemyMover : MonoBehaviour
 
             while (travelPercent < 1f)
             {
+                // Each frame move enemy by relative amount to stepSpeed
                 travelPercent += Time.deltaTime * stepSpeed;
                 transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
 
@@ -84,6 +76,7 @@ public class EnemyMover : MonoBehaviour
         FinishPath();
     }
 
+    // Enemy reached the end of the whole path without dying
     void FinishPath()
     {
         enemy.Penalty();

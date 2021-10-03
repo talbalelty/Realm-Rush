@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+// This Node class corresponds to each Tile and will be used by Pathfinder algorithm
 
 [System.Serializable]
 public class Node

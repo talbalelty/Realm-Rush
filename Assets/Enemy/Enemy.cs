@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// This script handles the Enemy to Bank transactions
 public class Enemy : MonoBehaviour
 {
+    [Header("Balance Configuration")]
+    [Tooltip("When enemy is killed")]
     [SerializeField] int reward = 25;
+    [Tooltip("When enemy reaches destination")]
     [SerializeField] int penalty = 25;
 
     Bank bank;
@@ -13,12 +15,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         bank = FindObjectOfType<Bank>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Reward()

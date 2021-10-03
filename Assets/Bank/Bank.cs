@@ -2,13 +2,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This script handles the currency and scene reloads
 public class Bank : MonoBehaviour
 {
-    [SerializeField] int startingBalance = 150;
-    [SerializeField] int currentBalance;
-    [SerializeField] int enemiesKilledGoal = 10;
-    [SerializeField] TMP_Text textBalance;
 
+    [SerializeField] TMP_Text textBalance;
+    [Header("Game Configuration")]
+    [SerializeField] int startingBalance = 800;
+    // [SerializeField] int enemiesKilledGoal = 25;
+
+    int currentBalance;
     int enemiesKilled;
 
     void Awake()
@@ -16,33 +19,24 @@ public class Bank : MonoBehaviour
         currentBalance = startingBalance;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        textBalance.text = $"Balance: {currentBalance}";
-    }
-    public int CurrentBalance
-    {
-        get
-        {
-            return currentBalance;
-        }
+        textBalance.text = $"Enemies Killed: {enemiesKilled} \nBalance: {currentBalance}";
     }
 
     public void Deposit(int amount)
     {
         currentBalance += Mathf.Abs(amount);
         enemiesKilled++;
-        if (enemiesKilled == enemiesKilledGoal)
-        {
-            // Load Next Level
-        }
+
+        // Win the game
+        //if (enemiesKilled == enemiesKilledGoal)
+        //{
+        //    // Load Next Level
+        //    Debug.Log("Winner!");
+        //    ReloadScene();
+        //}
     }
 
     public void Withdraw(int amount)
@@ -60,5 +54,13 @@ public class Bank : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
+    public int CurrentBalance
+    {
+        get
+        {
+            return currentBalance;
+        }
     }
 }

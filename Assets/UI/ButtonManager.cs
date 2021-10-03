@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// This script handle the different tower types with GUI buttons
 public class ButtonManager : MonoBehaviour
 {
     Tile tile;
@@ -15,6 +14,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (tile != null)
         {
+            // Tower index is a static variable, all the Tiles will spawn the new tower type
             tile.SetTowerIndex(index);
         }
     }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1770727980649989967}
   - component: {fileID: 1052841003588253311}
   - component: {fileID: 637033301366786691}
-  - component: {fileID: 8548560058595871840}
   - component: {fileID: 1465586514422849497}
   m_Layer: 0
   m_Name: Text (TMP)
@@ -19,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1770727980649989967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -172,22 +171,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!114 &8548560058595871840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589926744843584696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 591f3424939459349a70c553c7d7013a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockedColor: {r: 1, g: 0, b: 0, a: 1}
-  pathColor: {r: 0, g: 0, b: 1, a: 1}
-  exploredColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1465586514422849497
 MonoBehaviour:
   m_ObjectHideFlags: 0

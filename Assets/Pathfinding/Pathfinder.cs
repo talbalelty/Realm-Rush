@@ -1,22 +1,24 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+// This script handles the BFS algorithm that determines the enemy path on the map.
+// Used by ObjectPool GameObject
+// Uses GridManager's grid to calculate the path
 
 public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Vector2Int startCoordinates;
     [SerializeField] Vector2Int destinationCoordinates;
 
-    Node startNode;
-    Node destinationNode;
-    Node currentSearchNode;
-
     Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
-    GridManager gridManager;
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
     Dictionary<Vector2Int, Node> reached = new Dictionary<Vector2Int, Node>();
     Queue<Node> frontier = new Queue<Node>();
+
+    Node startNode;
+    Node destinationNode;
+    Node currentSearchNode;
+    GridManager gridManager;
 
     void Awake()
     {
@@ -47,7 +49,30 @@ public class Pathfinder : MonoBehaviour
         return BuildPath();
     }
 
-    private void ExploreNeighbors()
+    void BreadthFirstSearch(Vector2Int coordinates)
+    {
+        bool isRunning = true;
+        startNode.isWalkable = true;
+        destinationNode.isWalkable = true;
+        frontier.Clear();
+        reached.Clear();
+
+        frontier.Enqueue(grid[coordinates]);
+        reached.Add(coordinates, grid[coordinates]);
+
+        while (frontier.Count > 0 && isRunning)
+        {
+            currentSearchNode = frontier.Dequeue();
+            currentSearchNode.isExplored = true;
+            ExploreNeighbors();
+            if (currentSearchNode.coordinates == destinationCoordinates)
+            {
+                isRunning = false;
+            }
+        }
+    }
+
+    void ExploreNeighbors()
     {
         List<Node> neighbors = new List<Node>();
         Vector2Int neighborCoordinates;
@@ -72,30 +97,6 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    void BreadthFirstSearch(Vector2Int coordinates)
-    {
-        startNode.isWalkable = true;
-        destinationNode.isWalkable = true;
-        frontier.Clear();
-        reached.Clear();
-
-        bool isRunning = true;
-
-        frontier.Enqueue(grid[coordinates]);
-        reached.Add(coordinates, grid[coordinates]);
-
-        while (frontier.Count > 0 && isRunning)
-        {
-            currentSearchNode = frontier.Dequeue();
-            currentSearchNode.isExplored = true;
-            ExploreNeighbors();
-            if (currentSearchNode.coordinates == destinationCoordinates)
-            {
-                isRunning = false;
-            }
-        }
-    }
-
     List<Node> BuildPath()
     {
         List<Node> path = new List<Node>();
@@ -114,6 +115,7 @@ public class Pathfinder : MonoBehaviour
         return path;
     }
 
+    // If a tower will be placed on the Tile the enemies won't be able to reach destination
     public bool WillBlockPath(Vector2Int coordinates)
     {
         if (grid.ContainsKey(coordinates))

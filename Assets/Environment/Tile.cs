@@ -1,21 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// This script handles the map and tower placement, uses the new input system to determine placement
+
 public class Tile : MonoBehaviour
 {
+    [Tooltip("Check if a Tower can be placed on the Tile")]
     [SerializeField] bool isPlaceable = true;
+    [Tooltip("An array of player towers")]
     [SerializeField] Tower[] towers;
 
+    static int towerIndex;
+    bool isClicked = false;
+    Vector2Int coordinates = new Vector2Int();
     Vector2 pointerPosition;
     Ray ray;
     RaycastHit hit;
-    bool isClicked = false;
-
     GridManager gridManager;
     Pathfinder pathfinder;
-    Vector2Int coordinates = new Vector2Int();
     Node node;
-    static int towerIndex;
 
     private void Awake()
     {

@@ -1,12 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script handles the enemy path BFS algorithm
+
 public class GridManager : MonoBehaviour
 {
+    [Header("Hardcoded Settings")]
     [Tooltip("World Grid Size - should match UnityEditor snap settings")]
     [SerializeField] int unityGridSize = 10;
+    [Tooltip("The entire playable area starting from (0,0)")]
     [SerializeField] Vector2Int gridSize;
 
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
@@ -16,6 +18,7 @@ public class GridManager : MonoBehaviour
         CreateGrid();
     }
 
+    // Initial grid created without checking whether a tile isPlaceable
     void CreateGrid()
     {
         for (int x = 0; x < gridSize.x; x++)
@@ -28,6 +31,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    // When a tower is placed the tile is blocked
     public void BlockNode(Vector2Int coordinates)
     {
         if (grid.ContainsKey(coordinates))
@@ -36,6 +40,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    // when getting a new path reset all the nodes
     public void ResetNodes()
     {
         foreach (KeyValuePair<Vector2Int, Node> entry in grid)

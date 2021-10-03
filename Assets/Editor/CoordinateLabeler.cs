@@ -2,35 +2,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Move to Editor Folder before Building
+// Move to Editor Folder before Building!
+
+// This script handles the coordinates labels on the tiles.
+// Not for players use, only for designers.
 [ExecuteAlways]
 [RequireComponent(typeof(TextMeshPro))]
+
 public class CoordinateLabeler : MonoBehaviour
 {
+    [Header("Tile Coordinates Colors")]
     [SerializeField] Color blockedColor = Color.red;
     [SerializeField] Color pathColor = Color.blue;
     [SerializeField] Color exploredColor = Color.yellow;
     [SerializeField] Color defaultColor = Color.white;
 
-    TextMeshPro label;
-    Vector2Int coordinates = new Vector2Int();
-    GridManager gridManager;
     bool toggleLabels = false;
+    Vector2Int coordinates = new Vector2Int();
+    TextMeshPro label;
+    GridManager gridManager;
 
     private void Awake()
     {
         gridManager = FindObjectOfType<GridManager>();
         label = GetComponent<TextMeshPro>();
         label.color = defaultColor;
-        label.enabled = true;
+        label.enabled = false;
         
         DisplayCoordinates();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     void OnToggleTileLabels(InputValue value)
@@ -46,7 +45,6 @@ public class CoordinateLabeler : MonoBehaviour
             DisplayCoordinates();
             UpdateObjectName();
         }
-
         ToggleLabels();
         SetLabelColor();
     }
