@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Tile : MonoBehaviour
 {
     [SerializeField] bool isPlaceable = true;
-    [SerializeField] Tower tower;
+    [SerializeField] Tower[] towers;
 
     Vector2 pointerPosition;
     Ray ray;
@@ -15,6 +15,7 @@ public class Tile : MonoBehaviour
     Pathfinder pathfinder;
     Vector2Int coordinates = new Vector2Int();
     Node node;
+    static int towerIndex;
 
     private void Awake()
     {
@@ -75,7 +76,7 @@ public class Tile : MonoBehaviour
             // if is true when the hit GameObject equals this script's GameObject (the Tile)
             if (gameObject.Equals(hit.transform.gameObject))
             {
-                isSuccessful = tower.CreateTower(tower, transform.position);
+                isSuccessful = towers[towerIndex].CreateTower(towers[towerIndex], transform.position);
                 if (isSuccessful)
                 {
                     gridManager.BlockNode(coordinates);
@@ -90,6 +91,14 @@ public class Tile : MonoBehaviour
         get
         {
             return isPlaceable;
+        }
+    }
+
+    public void SetTowerIndex(int index)
+    {
+        if (0 <= index && index < towers.Length)
+        {
+            towerIndex = index;
         }
     }
 }

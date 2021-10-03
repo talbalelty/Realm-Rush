@@ -23,12 +23,6 @@ public class EnemyHealth : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         ProcessHit(other);
@@ -37,7 +31,10 @@ public class EnemyHealth : MonoBehaviour
     private void ProcessHit(GameObject other)
     {
         other.GetComponent<ParticleSystem>().GetCustomParticleData(damage, ParticleSystemCustomData.Custom1);
-        health -= damage[0].x;
+        if (damage.Count == 1)
+        {
+            health -= damage[0].x;
+        }
         if (health <= 0)
         {
             gameObject.SetActive(false);

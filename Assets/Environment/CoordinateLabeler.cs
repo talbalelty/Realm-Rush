@@ -22,7 +22,7 @@ public class CoordinateLabeler : MonoBehaviour
         gridManager = FindObjectOfType<GridManager>();
         label = GetComponent<TextMeshPro>();
         label.color = defaultColor;
-        label.enabled = false;
+        label.enabled = true;
         
         DisplayCoordinates();
     }

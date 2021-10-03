@@ -6,7 +6,10 @@ public class Bank : MonoBehaviour
 {
     [SerializeField] int startingBalance = 150;
     [SerializeField] int currentBalance;
+    [SerializeField] int enemiesKilledGoal = 10;
     [SerializeField] TMP_Text textBalance;
+
+    int enemiesKilled;
 
     void Awake()
     {
@@ -35,6 +38,11 @@ public class Bank : MonoBehaviour
     public void Deposit(int amount)
     {
         currentBalance += Mathf.Abs(amount);
+        enemiesKilled++;
+        if (enemiesKilled == enemiesKilledGoal)
+        {
+            // Load Next Level
+        }
     }
 
     public void Withdraw(int amount)
